@@ -30,6 +30,7 @@ This project boots a minimal Hadoop environment using Docker Compose with four s
 
 Clone the project and start the learning environment:
 
+
 ```powershell
 # clone repository
 git clone https://github.com/patrickmcruz/hadoop.git
@@ -39,12 +40,12 @@ Set-Location -LiteralPath .\hadoop
 docker-compose down
 docker-compose up -d
 ```
-
+docker exec -it hadoop-namenode-1 bash -c "hdfs dfs -ls /"
 If you want a specific project name or to run from a different folder, use `docker-compose -p hadoop up -d`.
 
 ## Quick Start (PowerShell)
 
-Open PowerShell in the project folder (`.../S1/hadoop`) and run:
+Open PowerShell in the project folder (`.../hadoop`) and run:
 
 ```powershell
 # Stop any existing stack, then start detached
@@ -97,35 +98,34 @@ docker exec -it hadoop-namenode-1 bash -c "hdfs dfs -mkdir -p /user/hduser/data 
 
 Adjust the container name if Compose created a different one; use `docker ps` to confirm.
 
-### Exemplo: criar o diretório `/seu-nome` no HDFS
+### Example: create the directory `/seu-nome` in HDFS
 
-A seguir há dois exemplos que um aluno pode seguir — (A) executar o comando diretamente no host usando `docker exec`, ou (B) abrir um shell interativo dentro do container e digitar os comandos manualmente.
+Here are two examples a student can follow — (A) execute the command directly on the host using `docker exec`, or (B) open an interactive shell inside the container and type the commands manually.
 
-- A) Executando do host (PowerShell):
+- A) Execute from host (PowerShell):
 
 ```powershell
-# cria o diretório /seu-nome no HDFS executando o comando dentro do container NameNode
+# Create the directory /seu-nome in HDFS executing the command line directly on the host machine NameNode
 docker exec -it hadoop-namenode-1 bash -c "hdfs dfs -mkdir -p /seu-nome"
 
-# listar o conteúdo da raiz para verificar
+# List the contents of the root directory to verify
 docker exec -it hadoop-namenode-1 bash -c "hdfs dfs -ls /"
 ```
-
-- B) Entrando no container e executando manualmente (fluxo interativo):
+- B) Enter in container and execute manually (interactive flow):
 
 ```bash
-# abrir um shell no container NameNode
+# open a shell inside the container NameNode
 docker exec -it hadoop-namenode-1 bash
 
-# dentro do container (em um shell bash), executar:
+# inside in the container, execute: 
 hdfs dfs -mkdir -p /seu-nome
 hdfs dfs -ls /
 
-# sair do container
+# exit the container
 exit
 ```
 
-Esses exemplos assumem que o contêiner NameNode foi criado com o nome `hadoop-namenode-1` pelo Compose. Use `docker ps` para confirmar o nome se for diferente.
+These examples assume that the NameNode container was created with the name `hadoop-namenode-1` by Compose. Use `docker ps` to confirm the name if it is different.
 
 ## Troubleshooting
 
