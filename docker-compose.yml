@@ -27,7 +27,6 @@ services:
       - "8088:8088"
     env_file: ./config
     volumes:
-      - ./test.sh:/opt/test.sh
       - ./conf/core-site.xml:/opt/hadoop/etc/hadoop/core-site.xml:ro
       - ./conf/yarn-site.xml:/opt/hadoop/etc/hadoop/yarn-site.xml:ro
 

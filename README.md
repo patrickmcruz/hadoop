@@ -97,6 +97,36 @@ docker exec -it hadoop-namenode-1 bash -c "hdfs dfs -mkdir -p /user/hduser/data 
 
 Adjust the container name if Compose created a different one; use `docker ps` to confirm.
 
+### Exemplo: criar o diretório `/seu-nome` no HDFS
+
+A seguir há dois exemplos que um aluno pode seguir — (A) executar o comando diretamente no host usando `docker exec`, ou (B) abrir um shell interativo dentro do container e digitar os comandos manualmente.
+
+- A) Executando do host (PowerShell):
+
+```powershell
+# cria o diretório /seu-nome no HDFS executando o comando dentro do container NameNode
+docker exec -it hadoop-namenode-1 bash -c "hdfs dfs -mkdir -p /seu-nome"
+
+# listar o conteúdo da raiz para verificar
+docker exec -it hadoop-namenode-1 bash -c "hdfs dfs -ls /"
+```
+
+- B) Entrando no container e executando manualmente (fluxo interativo):
+
+```bash
+# abrir um shell no container NameNode
+docker exec -it hadoop-namenode-1 bash
+
+# dentro do container (em um shell bash), executar:
+hdfs dfs -mkdir -p /seu-nome
+hdfs dfs -ls /
+
+# sair do container
+exit
+```
+
+Esses exemplos assumem que o contêiner NameNode foi criado com o nome `hadoop-namenode-1` pelo Compose. Use `docker ps` para confirmar o nome se for diferente.
+
 ## Troubleshooting
 
 - Port 8088 already allocated
