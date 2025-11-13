@@ -168,6 +168,6 @@ This project is released under the GNU General Public License v3.0 (GPL-3.0). Yo
 
 ## Credits
 
-- **Patrick Motin Cruz** — ML / AI Fullstack Developer
+- **Patrick Motin Cruz** — ML / AI Fullstack Developer and Data Science Student at UTFPR
 
 Thank you to the Apache Hadoop project and other open-source maintainers whose images and documentation make this learning environment possible.
