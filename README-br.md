@@ -142,8 +142,8 @@ Esses exemplos assumem que o contêiner NameNode foi criado com o nome `hadoop-n
   Em seguida rode:
 
   ```powershell
-  docker-compose down
-docker-compose up -d
+    docker-compose down
+    docker-compose up -d
   ```
 
 - Nomes de contêiner e projeto Compose
